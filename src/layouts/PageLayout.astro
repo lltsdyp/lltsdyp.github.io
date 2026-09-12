@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Footer from '../components/Footer.astro';
+import ResponsiveImage from '../components/ResponsiveImage.astro';
 
 interface Props {
   title: string;
@@ -17,10 +18,10 @@ const headTitle = pageTitle ?? `${title} — Self Esteem`;
 <BaseLayout title={headTitle} description={description} image={heroImage}>
   <div class="page">
     <header class="page-nav">
-      <a class="page-nav__brand" href="/">Self <span>Esteem</span></a>
+      <a class="page-nav__brand" href="/"><span>Ji's</span> Homepage</a>
       <nav aria-label="Primary">
+        <a href="/studio">About</a>
         <a href="/work">Work</a>
-        <a href="/studio">Studio</a>
         <a href="/blog">Blog</a>
         <a href="/contact">Contact</a>
       </nav>
@@ -30,7 +31,7 @@ const headTitle = pageTitle ?? `${title} — Self Esteem`;
       {
         heroImage && (
           <div class="page-hero">
-            <img src={heroImage} alt="" />
+            <ResponsiveImage src={heroImage} width={1600} height={900} alt="" loading="eager" />
           </div>
         )
       }

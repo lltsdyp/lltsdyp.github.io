@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  loading?: 'eager' | 'lazy';
+}
+
+const { src, width, height, alt, loading = 'lazy' } = Astro.props;
+---
+
+{
+  import.meta.env.DEV ? (
+    <img src={src} width={width} height={height} alt={alt} loading={loading} decoding="async" />
+  ) : (
+    <Image src={src} width={width} height={height} alt={alt} loading={loading} decoding="async" />
+  )
+}

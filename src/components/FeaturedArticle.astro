@@ -1,4 +1,6 @@
 ---
+import ResponsiveImage from './ResponsiveImage.astro';
+
 interface Props {
   bigTitle: string;
   date: Date;
@@ -30,7 +32,7 @@ const parts = emphasis ? headline.split('{emphasis}') : [headline];
     <div class="blog-menu small-title date">{formatted}</div>
   </div>
   <div class="blog-article">
-    <img src={cover} alt={bigTitle} />
+    <ResponsiveImage src={cover} width={1600} height={900} alt={bigTitle} loading="eager" />
     <h2>
       {
         emphasis ? (

@@ -15,13 +15,13 @@ interface Props {
 
 const {
   items = [
+    { label: 'About', href: '/studio' },
     { label: 'Work', href: '/work' },
-    { label: 'Studio', href: '/studio' },
     { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },
   ],
-  mention = '@MagazineDope',
-  mentionHref = '/',
+  mention = '@lltsdyp',
+  mentionHref = '/', // TODO: 路由至其他站的个人主页？
   subscribeLabel = 'Subscribe',
   subscribeHref = '/contact',
 } = Astro.props;

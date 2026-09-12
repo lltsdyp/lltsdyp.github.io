@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
+import ResponsiveImage from '../../components/ResponsiveImage.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
@@ -34,7 +35,14 @@ const fmt = (d: Date) =>
       posts.map((post) => (
         <a class="post-card" href={`/blog/${post.id}`}>
           <div class="post-card__cover">
-            <img src={post.data.cover} alt="" loading="lazy" />
+            <ResponsiveImage
+              src={post.data.cover}
+              width={1200}
+              height={800}
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div>
             <div class="post-card__meta">

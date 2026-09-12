@@ -1,6 +1,7 @@
 @use 'sass:color';
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@wc1font/source-han-serif-sc-vf@1.0.6/font.css');
 
 * {
   outline: none;
@@ -21,7 +22,7 @@ a {
 }
 
 $title-font: 'Space Grotesk', sans-serif;
-$subtitle-font: 'Inter', sans-serif;
+$subtitle-font: 'Source Serif 4', 'Source Han Serif SC VF', Georgia, serif;
 $italic-font: 'Playfair Display', serif;
 $blog-bg: #e9e6e4;
 $body-bg: #121418;
@@ -667,14 +668,33 @@ html {
     gap: 28px;
 
     a {
+      position: relative;
+      display: inline-block;
       color: $subtitle-color;
       text-decoration: none;
       font-size: 17px;
       letter-spacing: -0.3px;
+      transition: color 180ms ease;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -5px;
+        left: 0;
+        height: 1px;
+        background-color: currentColor;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 220ms ease;
+      }
 
       &:hover {
-        font-style: italic;
-        font-family: $italic-font;
+        color: $title-color;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
       }
     }
   }
@@ -885,13 +905,32 @@ html {
     gap: 24px;
 
     a {
+      position: relative;
+      display: inline-block;
       color: $subtitle-color;
       text-decoration: none;
       font-size: 15px;
+      transition: color 180ms ease;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -5px;
+        left: 0;
+        height: 1px;
+        background-color: currentColor;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 220ms ease;
+      }
 
       &:hover {
-        font-family: $italic-font;
-        font-style: italic;
+        color: $title-color;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
       }
     }
   }

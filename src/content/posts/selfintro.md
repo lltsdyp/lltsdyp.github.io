@@ -1,6 +1,6 @@
 ---
 title: 'How 2020 Changed Understanding Of Mental Health'
-bigTitle: 'Control'
+bigTitle: 'Zimo Ji'
 emphasis: 'Understanding'
 headline: 'How 2020 Changed {emphasis} Of Mental Health'
 excerpt: 'Reflections on the shifts of 2020 and how a year of disruption rewired our collective understanding of attention.'

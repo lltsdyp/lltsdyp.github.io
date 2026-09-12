@@ -21,7 +21,8 @@ No gradients, shadows, or accent colors.
 | Family                  | Role                          | Weights    |
 | ----------------------- | ----------------------------- | ---------- |
 | Space Grotesk           | Display, titles, page numbers | 400 to 700 |
-| Inter                   | Body, UI                      | 300 to 600 |
+| Source Serif 4          | Body, UI                      | 400 to 600 |
+| Source Han Serif SC VF  | Simplified Chinese glyphs     | 400 to 600 |
 | Playfair Display Italic | Emphasis, pull-quotes         | 400 to 500 |
 
 **Scale:** hero `132px` then `9vw` then `18vw`; page-title `clamp(40px, 7vw, 88px)`; article H2 `32px`; menu `22px` then `1.6vw`; body `18px`; meta `13` to `14px`. Letter-spacing tightens with size (`-0.5px` to `-5px`).

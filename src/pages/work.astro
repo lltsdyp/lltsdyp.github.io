@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import PageLayout from '../layouts/PageLayout.astro';
+import ResponsiveImage from '../components/ResponsiveImage.astro';
 
 const items = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
 ---
@@ -28,7 +29,14 @@ const items = (await getCollection('work')).sort((a, b) => a.data.order - b.data
               target={item.data.url ? '_blank' : undefined}
               rel={item.data.url ? 'noopener' : undefined}
             >
-              <img src={item.data.cover} alt="" loading="lazy" />
+              <ResponsiveImage
+                src={item.data.cover}
+                width={1200}
+                height={800}
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
               <div class="work-item__year">{item.data.year}</div>
               <div class="work-item__title">{item.data.title}</div>
               <div class="work-item__summary">{item.data.summary}</div>

@@ -1,6 +1,6 @@
 ---
 title: 'Talking About Vulnerability During Quarantine'
-bigTitle: 'Love'
+bigTitle: 'Traveler'
 emphasis: 'Vulnerability'
 headline: 'Talking About {emphasis} During Quarantine'
 excerpt: 'A long-form meditation on vulnerability, quiet, and learning to sit with the discomfort of stillness.'

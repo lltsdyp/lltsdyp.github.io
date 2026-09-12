@@ -33,3 +33,7 @@ Thumbs.db
 
 # claude / agent artifacts
 .claude/
+
+# pnpm config
+pnpm-lock.yaml
+pnpm-workspace.yaml
