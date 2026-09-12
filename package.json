@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.0",
-    "@astrojs/rss": "^4.0.18",
+    "@astrojs/rss": "^4.0.19",
     "astro": "^6.4.2",
-    "sass": "^1.100.0",
-    "sharp": "0.34.5"
+    "sass": "^1.104.0",
+    "sharp": "0.35.4"
   },
   "engines": {
     "node": ">=22.12.0"
