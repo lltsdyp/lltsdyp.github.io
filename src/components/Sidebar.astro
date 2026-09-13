@@ -17,7 +17,7 @@ interface Props {
   seeAllHref?: string;
 }
 
-const { entries, heading = 'Featured Articles', seeAllHref = '#' } = Astro.props;
+const { entries, heading = 'Gallery Notes', seeAllHref } = Astro.props;
 
 const fmt = (d: Date) =>
   new Intl.DateTimeFormat('en-GB', {
@@ -35,7 +35,13 @@ const sorted = [...entries].sort((a, b) => a.data.order - b.data.order);
   <Marquee />
   <div class="blog-right-title-container">
     <div class="blog-right-title">{heading}</div>
-    <a href={seeAllHref} class="blog-menu rounded">See All</a>
+    {
+      seeAllHref && (
+        <a href={seeAllHref} class="blog-menu rounded">
+          See All
+        </a>
+      )
+    }
   </div>
   <div class="blog-right">
     {

@@ -52,8 +52,8 @@ npm run build    # static output to ./dist
 
 ```
 src/
-├── components/      Menu, Footer, FeaturedArticle, Sidebar, Marquee, Circle, StickyHeader
-├── content/         posts/ (md+mdx), featured/, work/
+├── components/      Menu, Footer, GalleryItem, Sidebar, Marquee, Circle, StickyHeader
+├── content/         posts/ (md+mdx), gallery/, featured/, work/
 ├── content.config.ts
 ├── layouts/         BaseLayout, PageLayout
 ├── pages/           index, blog/, tags/, about, contact, work, 404, rss.xml
@@ -72,19 +72,34 @@ title: 'Your Article Title'
 bigTitle: 'Hero'
 emphasis: 'Word' # optional, italicised inside the headline
 headline: 'Sharing The {emphasis} Acclaim About Motivation'
-excerpt: 'Teaser shown on the cover and in /blog.'
+excerpt: 'Teaser shown in /blog.'
 author: 'Jane Doe'
 date: 2026-01-01
 cover: 'https://images.unsplash.com/...'
 tags: ['attention', 'quiet']
-featured: true # appear on the magazine cover
-pageNumber: 'NO. 01' # optional, used by the sticky header
+pageNumber: 'NO. 01' # optional, article eyebrow
 ---
 
 Long-form body.
 ```
 
 Sidebar entries (`src/content/featured/`) and portfolio items (`src/content/work/`) use smaller schemas; see `content.config.ts`.
+
+## Homepage gallery
+
+Homepage images and captions live in `src/content/gallery/`, independently of Blog.
+The existing exhibits were moved here from `posts/`; their Markdown bodies are
+preserved as source material, but only frontmatter is displayed on the homepage.
+Gallery entries do not create Blog pages, tags, RSS items, or article navigation.
+
+To add an exhibit, copy an existing gallery `.md` file and edit its `title`,
+`bigTitle`, `headline`, `excerpt`, `author`, `date`, and `cover`. Use `order` to
+control its position (ascending), optional `emphasis` for italic headline text,
+optional `pageNumber` for the sticky header, and `draft: true` to hide it.
+The `featured/` collection contains the homepage's Gallery Notes sidebar only.
+
+For a blog article, create a separate file in `src/content/posts/`. Blog posts
+never appear in the homepage gallery automatically.
 
 ## Adding a subpage
 

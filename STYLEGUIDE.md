@@ -41,15 +41,15 @@ Hamburger appears at ≤1030, single column at ≤768.
 
 ## Components
 
-| File                                                      | Purpose                                |
-| --------------------------------------------------------- | -------------------------------------- |
-| [`Menu`](src/components/Menu.astro)                       | Primary nav (left rail, mobile drawer) |
-| [`Footer`](src/components/Footer.astro)                   | Subpage footer                         |
-| [`StickyHeader`](src/components/StickyHeader.astro)       | "Self / Pinned Issue / NO. xx"         |
-| [`FeaturedArticle`](src/components/FeaturedArticle.astro) | Magazine hero card (scroll-snaps)      |
-| [`Sidebar`](src/components/Sidebar.astro)                 | Marquee + featured list + Circle       |
-| [`Circle`](src/components/Circle.astro)                   | Dark circular CTA                      |
-| [`Marquee`](src/components/Marquee.astro)                 | Dark scrolling ticker                  |
+| File                                                | Purpose                                 |
+| --------------------------------------------------- | --------------------------------------- |
+| [`Menu`](src/components/Menu.astro)                 | Primary nav (left rail, mobile drawer)  |
+| [`Footer`](src/components/Footer.astro)             | Subpage footer                          |
+| [`StickyHeader`](src/components/StickyHeader.astro) | "Self / Pinned Issue / NO. xx"          |
+| [`GalleryItem`](src/components/GalleryItem.astro)   | Homepage gallery exhibit (scroll-snaps) |
+| [`Sidebar`](src/components/Sidebar.astro)           | Marquee + featured list + Circle        |
+| [`Circle`](src/components/Circle.astro)             | Dark circular CTA                       |
+| [`Marquee`](src/components/Marquee.astro)           | Dark scrolling ticker                   |
 
 ## Layouts
 

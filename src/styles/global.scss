@@ -175,6 +175,10 @@ body {
     letter-spacing: -5px;
     line-height: 1;
     margin-bottom: 6px;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
 
     @media screen and (max-width: 1400px) {
       font-size: 120px;

@@ -13,9 +13,26 @@ const posts = defineCollection({
     readTime: z.string().default('5 Min Read'),
     date: z.coerce.date(),
     cover: z.string().url(),
-    featured: z.boolean().default(false),
     pageNumber: z.string().optional(),
     tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
+// Homepage exhibits are independent of blog posts and never generate article routes.
+const gallery = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/gallery' }),
+  schema: z.object({
+    title: z.string(),
+    bigTitle: z.string(),
+    emphasis: z.string().optional(),
+    headline: z.string(),
+    excerpt: z.string(),
+    author: z.string(),
+    date: z.coerce.date(),
+    cover: z.string().url(),
+    order: z.number(),
+    pageNumber: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
@@ -43,4 +60,4 @@ const work = defineCollection({
     }),
 });
 
-export const collections = { posts, featured, work };
+export const collections = { posts, gallery, featured, work };
