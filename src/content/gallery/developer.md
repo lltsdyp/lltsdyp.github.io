@@ -1,12 +1,12 @@
 ---
 title: 'Sharing The Widespread Acclaim About Motivation'
-bigTitle: 'Photo-grapher'
+bigTitle: 'Developer'
 emphasis: 'Widespread'
 headline: 'Sharing The {emphasis} Acclaim About Motivation'
 excerpt: "Blonde received widespread acclaim, with critics praising Ocean's introspective lyrics and the album's unconventional structure."
 author: 'Richard Carnation'
 date: 2021-06-12
-order: 3
+order: 2
 cover: 'https://images.unsplash.com/photo-1496629062893-b0f566065d44?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGJsYWNrJTIwYW5kJTIwd2hpdGV8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=70'
 pageNumber: 'NO. 01'
 ---

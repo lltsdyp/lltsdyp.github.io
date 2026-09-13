@@ -14,7 +14,7 @@ const featured = await getCollection('featured');
 const pageNumber = gallery.find((item) => item.data.pageNumber)?.data.pageNumber ?? 'NO. 01';
 ---
 
-<BaseLayout>
+<BaseLayout title="Zimo's Homepage">
   <div class="blog">
     <Menu />
     <StickyHeader title="I'm" pinnedLabel="Hi, there!" pageNumber={pageNumber} />
