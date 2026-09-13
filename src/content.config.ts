@@ -32,14 +32,15 @@ const featured = defineCollection({
 
 const work = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/work' }),
-  schema: z.object({
-    title: z.string(),
-    year: z.string(),
-    cover: z.string().url(),
-    summary: z.string(),
-    url: z.string().url().optional(),
-    order: z.number().default(0),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      year: z.string(),
+      cover: z.union([image(), z.string().url()]),
+      summary: z.string(),
+      url: z.string().url().optional(),
+      order: z.number().default(0),
+    }),
 });
 
 export const collections = { posts, featured, work };
