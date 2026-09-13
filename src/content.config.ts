@@ -22,16 +22,17 @@ const posts = defineCollection({
 // Homepage exhibits are independent of blog posts and never generate article routes.
 const gallery = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/gallery' }),
-  schema: z.object({
-    title: z.string(),
-    bigTitle: z.string(),
-    emphasis: z.string().optional(),
-    headline: z.string(),
-    cover: z.string().url(),
-    order: z.number(),
-    pageNumber: z.string().optional(),
-    draft: z.boolean().default(false),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      bigTitle: z.string(),
+      emphasis: z.string().optional(),
+      headline: z.string(),
+      cover: z.union([image(), z.string().url(), z.string().startsWith('/')]),
+      order: z.number(),
+      pageNumber: z.string().optional(),
+      draft: z.boolean().default(false),
+    }),
 });
 
 const featured = defineCollection({

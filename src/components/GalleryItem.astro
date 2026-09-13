@@ -1,11 +1,12 @@
 ---
+import type { ImageMetadata } from 'astro';
 import ResponsiveImage from './ResponsiveImage.astro';
 
 interface Props {
   bigTitle: string;
   emphasis?: string;
   headline: string;
-  cover: string;
+  cover: ImageMetadata | string;
 }
 
 const { bigTitle, emphasis, headline, cover } = Astro.props;
