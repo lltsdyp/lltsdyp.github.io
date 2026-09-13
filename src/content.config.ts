@@ -3,20 +3,21 @@ import { glob } from 'astro/loaders';
 
 const posts = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/posts' }),
-  schema: z.object({
-    title: z.string(),
-    bigTitle: z.string(),
-    emphasis: z.string().optional(),
-    headline: z.string(),
-    excerpt: z.string(),
-    author: z.string(),
-    readTime: z.string().default('5 Min Read'),
-    date: z.coerce.date(),
-    cover: z.string().url(),
-    pageNumber: z.string().optional(),
-    tags: z.array(z.string()).default([]),
-    draft: z.boolean().default(false),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      bigTitle: z.string(),
+      emphasis: z.string().optional(),
+      headline: z.string(),
+      excerpt: z.string(),
+      author: z.string(),
+      readTime: z.string().default('5 Min Read'),
+      date: z.coerce.date(),
+      cover: z.union([image(), z.string().url(), z.string().startsWith('/')]),
+      pageNumber: z.string().optional(),
+      tags: z.array(z.string()).default([]),
+      draft: z.boolean().default(false),
+    }),
 });
 
 // Homepage exhibits are independent of blog posts and never generate article routes.
@@ -51,7 +52,7 @@ const work = defineCollection({
     z.object({
       title: z.string(),
       year: z.string(),
-      cover: z.union([image(), z.string().url()]),
+      cover: z.union([image(), z.string().url(), z.string().startsWith('/')]),
       summary: z.string(),
       url: z.string().url().optional(),
       order: z.number().default(0),

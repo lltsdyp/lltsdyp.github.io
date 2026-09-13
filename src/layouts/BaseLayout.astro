@@ -1,8 +1,10 @@
 ---
+import type { ImageMetadata } from 'astro';
+
 interface Props {
   title?: string;
   description?: string;
-  image?: string;
+  image?: ImageMetadata | string;
 }
 
 const {
@@ -12,7 +14,8 @@ const {
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).toString();
-const ogImage = image ? new URL(image, Astro.site ?? Astro.url).toString() : undefined;
+const imageSource = typeof image === 'string' ? image : image?.src;
+const ogImage = imageSource ? new URL(imageSource, Astro.site ?? Astro.url).toString() : undefined;
 ---
 
 <!doctype html>

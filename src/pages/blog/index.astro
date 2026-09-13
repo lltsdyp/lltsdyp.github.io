@@ -8,7 +8,7 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
 );
 
 const fmt = (d: Date) =>
-  `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.${d.getFullYear()}`;
+  `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
 
 const renderHeadline = (headline: string, emphasis?: string) => {
   if (!emphasis) return headline;
