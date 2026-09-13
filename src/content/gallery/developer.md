@@ -8,4 +8,4 @@ cover: '../../assets/developer.png'
 pageNumber: 'NO. 01'
 ---
 
-*Coding is part of my work, but it is not only work.* Ever since I was a kid, I’ve enjoyed figuring out how things work and tinkering until I could make something of my own. I also incorporate in open source projects in my spare time.
+_Coding is part of my work, but it is not only work._ Ever since I was a kid, I’ve enjoyed figuring out how things work and tinkering until I could make something of my own. I also incorporate in open source projects in my spare time.

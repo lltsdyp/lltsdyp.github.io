@@ -6,11 +6,7 @@ import ResponsiveImage from '../components/ResponsiveImage.astro';
 const items = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<PageLayout
-  title="Selected Work"
-  eyebrow="Projects"
-  description="The projects I contributed to."
->
+<PageLayout title="Selected Work" eyebrow="Projects" description="The projects I contributed to.">
   {
     items.length === 0 ? (
       <p>
