@@ -3,23 +3,12 @@ import ResponsiveImage from './ResponsiveImage.astro';
 
 interface Props {
   bigTitle: string;
-  date: Date;
   emphasis?: string;
   headline: string;
   cover: string;
-  author: string;
-  excerpt: string;
 }
 
-const { bigTitle, date, emphasis, headline, cover, author, excerpt } = Astro.props;
-
-const formatted = new Intl.DateTimeFormat('en-GB', {
-  day: '2-digit',
-  month: '2-digit',
-  year: 'numeric',
-})
-  .format(date)
-  .replaceAll('/', '.');
+const { bigTitle, emphasis, headline, cover } = Astro.props;
 
 const parts = emphasis ? headline.split('{emphasis}') : [headline];
 ---
@@ -27,7 +16,7 @@ const parts = emphasis ? headline.split('{emphasis}') : [headline];
 <div class="blog-header">
   <div class="blog-article header-article">
     <div class="blog-big__title">{bigTitle}</div>
-    <div class="blog-menu small-title date">{formatted}</div>
+    <div class="gallery-header-divider" aria-hidden="true"></div>
   </div>
   <div class="blog-article">
     <ResponsiveImage src={cover} width={1600} height={900} alt={bigTitle} loading="eager" />
@@ -44,9 +33,8 @@ const parts = emphasis ? headline.split('{emphasis}') : [headline];
         )
       }
     </h2>
-    <div class="blog-detail">
-      <span>By {author}</span>
+    <div class="prose gallery-body">
+      <slot />
     </div>
-    <p>{excerpt}</p>
   </div>
 </div>

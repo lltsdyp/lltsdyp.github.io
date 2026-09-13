@@ -3,11 +3,11 @@ import Marquee from './Marquee.astro';
 import Circle from './Circle.astro';
 
 interface Entry {
+  id: string;
   data: {
     title: string;
-    subtitle: string;
+    excerpt: string;
     date: Date;
-    order: number;
   };
 }
 
@@ -17,7 +17,7 @@ interface Props {
   seeAllHref?: string;
 }
 
-const { entries, heading = 'Gallery Notes', seeAllHref } = Astro.props;
+const { entries, heading = 'Recent Blogs', seeAllHref } = Astro.props;
 
 const fmt = (d: Date) =>
   new Intl.DateTimeFormat('en-GB', {
@@ -28,7 +28,7 @@ const fmt = (d: Date) =>
     .format(d)
     .replaceAll('/', '.');
 
-const sorted = [...entries].sort((a, b) => a.data.order - b.data.order);
+const sorted = [...entries].sort((a, b) => +b.data.date - +a.data.date).slice(0, 3);
 ---
 
 <div class="blog-part right-blog">
@@ -45,15 +45,15 @@ const sorted = [...entries].sort((a, b) => a.data.order - b.data.order);
   </div>
   <div class="blog-right">
     {
-      sorted.map((e) => (
-        <div class="blog-right-container">
+      sorted.map((e, index) => (
+        <a class="blog-right-container" href={`/blog/${e.id}`}>
           <div class="blog-title-date">
-            <div class="blog-right-page">{e.data.order}</div>
+            <div class="blog-right-page">{index + 1}</div>
             <div class="date">{fmt(e.data.date)}</div>
           </div>
           <div class="blog-right-page-title">{e.data.title}</div>
-          <div class="blog-right-page-subtitle">{e.data.subtitle}</div>
-        </div>
+          <div class="blog-right-page-subtitle">{e.data.excerpt}</div>
+        </a>
       ))
     }
     <Circle />

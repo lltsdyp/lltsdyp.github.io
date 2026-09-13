@@ -93,10 +93,13 @@ preserved as source material, but only frontmatter is displayed on the homepage.
 Gallery entries do not create Blog pages, tags, RSS items, or article navigation.
 
 To add an exhibit, copy an existing gallery `.md` file and edit its `title`,
-`bigTitle`, `headline`, `excerpt`, `author`, `date`, and `cover`. Use `order` to
-control its position (ascending), optional `emphasis` for italic headline text,
-optional `pageNumber` for the sticky header, and `draft: true` to hide it.
-The `featured/` collection contains the homepage's Gallery Notes sidebar only.
+`bigTitle`, `headline`, and `cover`. The Markdown body is rendered below the
+headline on the homepage. Use `order` to control its position (ascending),
+optional `emphasis` for italic headline text, optional `pageNumber` for the
+sticky header, and `draft: true` to hide it.
+The homepage sidebar is titled `Recent Blogs` and shows up to the three newest
+non-draft entries from `src/content/posts/`, using the existing Gallery Notes
+layout. Legacy entries in `src/content/featured/` are no longer rendered there.
 
 For a blog article, create a separate file in `src/content/posts/`. Blog posts
 never appear in the homepage gallery automatically.

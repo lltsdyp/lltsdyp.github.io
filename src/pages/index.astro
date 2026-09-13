@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Menu from '../components/Menu.astro';
 import StickyHeader from '../components/StickyHeader.astro';
@@ -9,7 +9,15 @@ import Sidebar from '../components/Sidebar.astro';
 const gallery = (await getCollection('gallery', ({ data }) => !data.draft)).sort(
   (a, b) => a.data.order - b.data.order,
 );
-const featured = await getCollection('featured');
+const galleryWithContent = await Promise.all(
+  gallery.map(async (item) => ({
+    item,
+    Content: (await render(item)).Content,
+  })),
+);
+const recentPosts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => +b.data.date - +a.data.date)
+  .slice(0, 3);
 
 const pageNumber = gallery.find((item) => item.data.pageNumber)?.data.pageNumber ?? 'NO. 01';
 ---
@@ -21,20 +29,19 @@ const pageNumber = gallery.find((item) => item.data.pageNumber)?.data.pageNumber
 
     <div class="blog-header-container">
       {
-        gallery.map((item) => (
+        galleryWithContent.map(({ item, Content }) => (
           <GalleryItem
             bigTitle={item.data.bigTitle}
-            date={item.data.date}
             emphasis={item.data.emphasis}
             headline={item.data.headline}
             cover={item.data.cover}
-            author={item.data.author}
-            excerpt={item.data.excerpt}
-          />
+          >
+            <Content />
+          </GalleryItem>
         ))
       }
     </div>
 
-    <Sidebar entries={featured} />
+    <Sidebar entries={recentPosts} heading="Recent Blogs" />
   </div>
 </BaseLayout>
