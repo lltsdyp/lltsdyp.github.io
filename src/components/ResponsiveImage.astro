@@ -5,7 +5,7 @@ import type { ImageMetadata } from 'astro';
 interface Props {
   src: ImageMetadata | string;
   width: number;
-  height: number;
+  height?: number;
   alt: string;
   loading?: 'eager' | 'lazy';
 }

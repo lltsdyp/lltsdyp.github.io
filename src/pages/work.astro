@@ -9,7 +9,7 @@ const items = (await getCollection('work')).sort((a, b) => a.data.order - b.data
 <PageLayout
   title="Selected Work"
   eyebrow="Projects"
-  description="A sample of issues, collaborations, and side projects from the studio."
+  description="The projects I contributed to."
 >
   {
     items.length === 0 ? (
@@ -29,14 +29,15 @@ const items = (await getCollection('work')).sort((a, b) => a.data.order - b.data
               target={item.data.url ? '_blank' : undefined}
               rel={item.data.url ? 'noopener' : undefined}
             >
-              <ResponsiveImage
-                src={item.data.cover}
-                width={1200}
-                height={800}
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
+              <div class="work-item__image">
+                <ResponsiveImage
+                  src={item.data.cover}
+                  width={1200}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
               <div class="work-item__year">{item.data.year}</div>
               <div class="work-item__title">{item.data.title}</div>
               <div class="work-item__summary">{item.data.summary}</div>
