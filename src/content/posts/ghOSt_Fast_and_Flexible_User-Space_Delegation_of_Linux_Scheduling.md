@@ -1,6 +1,6 @@
 ---
 title: 'ghOSt: Fast & Flexible User-Space Delegation of Linux Scheduling 论文阅读报告'
-bigTitle: 'Report'
+bigTitle: 'ghOSt: Fast & Flexible User-Space Delegation of Linux Scheduling 论文阅读报告'
 emphasis: 'ghOst'
 headline: '{emphasis}: Fast & Flexible User-Space Delegation of Linux Scheduling 论文阅读报告'
 excerpt: 'ghOSt将Linux调度策略移至用户态，通过灵活agent实现多策略并存、动态升级与高性能隔离，提升数据中心负载调度效率。'
