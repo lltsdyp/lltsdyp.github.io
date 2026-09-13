@@ -44,7 +44,7 @@ npm run build    # static output to ./dist
 - Full-viewport magazine homepage (`/`)
 - `/blog` index + `/blog/[slug]` MDX post pages with prev/next
 - `/tags/[tag]` pages generated from post frontmatter
-- `/studio`, `/contact`, `/work` (data-driven), `/404`
+- `/about`, `/contact`, `/work` (data-driven), `/404`
 - RSS at `/rss.xml`, OG/Twitter meta in `BaseLayout`
 - `PageLayout` + `_template.astro.example` for creating new pages
 
@@ -56,7 +56,7 @@ src/
 ├── content/         posts/ (md+mdx), featured/, work/
 ├── content.config.ts
 ├── layouts/         BaseLayout, PageLayout
-├── pages/           index, blog/, tags/, studio, contact, work, 404, rss.xml
+├── pages/           index, blog/, tags/, about, contact, work, 404, rss.xml
 └── styles/global.scss
 ```
 

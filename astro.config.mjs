@@ -5,6 +5,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://lltsdyp.github.io',
   trailingSlash: 'ignore',
+  redirects: {
+    '/studio': '/about',
+  },
   image: {
     remotePatterns: [{ protocol: 'https', hostname: 'images.unsplash.com' }],
   },
