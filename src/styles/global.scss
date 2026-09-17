@@ -1,6 +1,6 @@
 @use 'sass:color';
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@1,400;1,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import url('https://cdn.jsdelivr.net/npm/@wc1font/source-han-serif-sc-vf@1.0.6/font.css');
 
 * {
@@ -24,6 +24,8 @@ a {
 $title-font: 'Space Grotesk', sans-serif;
 $subtitle-font: 'Source Serif 4', 'Source Han Serif SC VF', Georgia, serif;
 $italic-font: 'Playfair Display', serif;
+$code-font: 'IBM Plex Mono', 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas,
+  'Liberation Mono', monospace;
 $blog-bg: #e9e6e4;
 $body-bg: #121418;
 $title-color: #121418;
@@ -847,22 +849,26 @@ html {
   }
 
   code {
-    font-family: $title-font;
+    font-family: $code-font;
     font-size: 0.92em;
+    font-variant-ligatures: none;
     background: rgba(18, 20, 24, 0.06);
     padding: 2px 6px;
     border-radius: 2px;
   }
 
   pre {
+    font-family: $code-font;
     background: $body-bg;
     color: $blog-bg;
     padding: 20px;
     overflow-x: auto;
     font-size: 14px;
     line-height: 1.55;
+    font-variant-ligatures: none;
 
     code {
+      font-family: inherit;
       background: transparent;
       padding: 0;
       color: inherit;
