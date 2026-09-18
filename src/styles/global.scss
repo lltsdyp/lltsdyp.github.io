@@ -31,6 +31,11 @@ $body-bg: #121418;
 $title-color: #121418;
 $subtitle-color: #161419;
 $border-color: #94918f;
+$code-bg: #efeeea;
+$code-text: #3d3935;
+$code-accent: #a77b67;
+$code-accent-dark: #795b4f;
+$code-border: #dcd8d1;
 
 body {
   background-color: $blog-bg;
@@ -852,26 +857,47 @@ html {
     font-family: $code-font;
     font-size: 0.92em;
     font-variant-ligatures: none;
+    color: $code-accent-dark;
     background: rgba(18, 20, 24, 0.06);
-    padding: 2px 6px;
-    border-radius: 2px;
+    padding: 2px 5px;
+    border-radius: 3px;
   }
 
   pre {
     font-family: $code-font;
-    background: $body-bg;
-    color: $blog-bg;
-    padding: 20px;
+    background: $code-bg !important;
+    color: $code-text !important;
+    border: 1px solid $code-border;
+    border-radius: 6px;
+    padding: 0;
     overflow-x: auto;
     font-size: 14px;
     line-height: 1.55;
     font-variant-ligatures: none;
 
+    &::before {
+      content: attr(data-language);
+      display: block;
+      padding: 9px 14px 0;
+      color: $code-accent;
+      font-family: $code-font;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      text-transform: lowercase;
+    }
+
+    &[data-language='plaintext']::before {
+      content: 'text';
+    }
+
     code {
       font-family: inherit;
       background: transparent;
-      padding: 0;
-      color: inherit;
+      padding: 8px 14px 14px;
+      color: inherit !important;
+      display: block;
     }
   }
 
@@ -1003,6 +1029,20 @@ html {
     height: 160px;
     object-fit: cover;
     display: block;
+    filter: grayscale(1);
+    transform: scale(1);
+    transition:
+      transform 320ms ease,
+      filter 260ms ease;
+  }
+
+  &__cover {
+    overflow: hidden;
+  }
+
+  &:hover &__cover img {
+    filter: grayscale(0);
+    transform: scale(1.06);
   }
 
   &__meta {
