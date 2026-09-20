@@ -54,6 +54,7 @@ export default defineConfig({
   site: 'https://lltsdyp.github.io',
   trailingSlash: 'ignore',
   redirects: {
+    '/contact': '/rss.xml',
     '/studio': '/about',
   },
   image: {

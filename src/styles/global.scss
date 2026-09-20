@@ -1178,61 +1178,6 @@ html {
   }
 }
 
-/* ---------- Contact form ---------- */
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  margin-top: 32px;
-
-  label {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    font-size: 13px;
-    font-family: $italic-font;
-    font-style: italic;
-  }
-
-  input,
-  textarea {
-    font-family: $subtitle-font;
-    font-size: 16px;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid $border-color;
-    padding: 10px 0;
-    color: $title-color;
-
-    &:focus {
-      border-bottom-color: $title-color;
-    }
-  }
-
-  textarea {
-    min-height: 140px;
-    resize: vertical;
-  }
-
-  button {
-    align-self: flex-start;
-    font-family: $title-font;
-    font-weight: 600;
-    font-size: 16px;
-    background: $body-bg;
-    color: $blog-bg;
-    border: 0;
-    padding: 14px 28px;
-    cursor: pointer;
-    letter-spacing: -0.3px;
-
-    &:hover {
-      opacity: 0.9;
-    }
-  }
-}
-
 /* ---------- Work grid ---------- */
 
 .work-grid {

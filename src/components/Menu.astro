@@ -9,8 +9,6 @@ interface Props {
   items?: MenuItem[];
   mention?: string;
   mentionHref?: string;
-  subscribeLabel?: string;
-  subscribeHref?: string;
 }
 
 const {
@@ -18,12 +16,10 @@ const {
     { label: 'About', href: '/about' },
     { label: 'Work', href: '/work' },
     { label: 'Blog', href: '/blog' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Subscribe', href: '/rss.xml' },
   ],
   mention = '@lltsdyp',
   mentionHref = 'https://github.com/lltsdyp',
-  subscribeLabel = 'Subscribe',
-  subscribeHref = '/contact',
 } = Astro.props;
 ---
 
@@ -62,7 +58,6 @@ const {
     ))
   }
   <a href={mentionHref} class="blog-menu mention">{mention}</a>
-  <a href={subscribeHref} class="blog-menu subscribe">{subscribeLabel}</a>
 </div>
 
 <script>
