@@ -1,9 +1,9 @@
 ---
-title: 'Deepseek Harness：插件运行机制探索'
-bigTitle: 'Deepseek Harness：插件运行机制探索'
-emphasis: 'Deepseek  Harness'
+title: 'DeepSeek Harness：插件运行机制探索'
+bigTitle: 'DeepSeek Harness：插件运行机制探索'
+emphasis: 'DeepSeek Harness'
 headline: '{emphasis}：插件运行机制探索'
-excerpt: '介绍Deepseek Harness，以及其核心的插件机制，插件的代码实现'
+excerpt: '介绍 DeepSeek Harness，以及其核心的插件机制和代码实现'
 author: 'Zimo Ji'
 readTime: '4 Min Read'
 date: 2026-09-17
@@ -13,11 +13,11 @@ tags: ['harness engineering', 'deepseek', '笔记']
 
 # 0 前言
 
-上个月Deepseek发布了Deepseek Harness这个AI Agent框架，之前忙保研来不及捣鼓这个东西，九月忙的差不多了正好趁着deepseek降价来研究一下。
+上个月 DeepSeek 发布了 DeepSeek Harness 这个 AI Agent 框架，之前忙保研来不及捣鼓这个东西，九月忙得差不多了，正好趁着 DeepSeek 降价来研究一下。
 
 # 1 环境配置
 
-直接参考 [deepseek harness官方文档](https://github.com/deepseek-ai/deepseek-harness/blob/master/README.zh.md#run)，如果只是想用web ui，直接
+直接参考 [DeepSeek Harness 官方文档](https://github.com/deepseek-ai/deepseek-harness/blob/master/README.zh.md#run)，如果只是想用 Web UI，直接
 
 ```shell
 npx @deepseek-ai/dsh web
@@ -37,7 +37,7 @@ pnpm dsh web
 
 # 2 基础使用
 
-deepseek harness作为一个基础框架，提供了一些基本的预设，可以通过 `--profile` 来指定
+DeepSeek Harness 作为一个基础框架，提供了一些基本的预设，可以通过 `--profile` 来指定
 
 | Profile       | 用途                                                        | 大致组成                |
 | ------------- | ----------------------------------------------------------- | ----------------------- |
@@ -49,13 +49,13 @@ deepseek harness作为一个基础框架，提供了一些基本的预设，可�
 
 # 3 插件
 
-Deepseek Harness自称为*everything-is-a-plugin*，其本质上就是由插件组装出来的 _Agent Harness_，为开发者提供了极高的自由度。
+DeepSeek Harness 自称为 _everything-is-a-plugin_，其本质上就是由插件组装出来的 _Agent Harness_，为开发者提供了极高的自由度。
 
-下面研究一下Deepseek Harness中的代码
+下面研究一下 DeepSeek Harness 中的代码
 
 ## 3.1 `read.ts`
 
-deepseek-harness官方就提供了一些预设好的plugin，我们以最基础的阅读文件工具[`read.ts`](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/fs/tool-fs/src/read.ts) 看起。
+DeepSeek Harness 官方就提供了一些预设好的 plugin，我们以最基础的阅读文件工具 [`read.ts`](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/fs/tool-fs/src/read.ts) 看起。
 
 这个工具整体代码不是特别复杂，200多行代码，其核心入口位于
 

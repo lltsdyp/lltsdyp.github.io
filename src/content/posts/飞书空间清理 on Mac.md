@@ -3,7 +3,7 @@ title: '飞书空间清理 on Mac'
 bigTitle: '飞书空间清理 on Mac'
 emphasis: '飞书'
 headline: '飞书空间清理 on Mac'
-excerpt: '命令行操作起来比在飞书点来点去方便多了。。'
+excerpt: '命令行操作起来比在飞书点来点去方便多了。。。'
 author: 'Zimo Ji'
 readTime: '4 Min Read'
 date: 2026-09-19

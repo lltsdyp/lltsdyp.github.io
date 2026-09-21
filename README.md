@@ -53,7 +53,7 @@ npm run build    # static output to ./dist
 ```
 src/
 ├── components/      Menu, Footer, GalleryItem, Sidebar, Marquee, Circle, StickyHeader
-├── content/         posts/ (md+mdx), gallery/, featured/, work/
+├── content/         posts/ (md+mdx), gallery/, work/
 ├── content.config.ts
 ├── layouts/         BaseLayout, PageLayout
 ├── pages/           index, blog/, tags/, about, contact, work, 404, rss.xml
@@ -83,7 +83,7 @@ pageNumber: 'NO. 01' # optional, article eyebrow
 Long-form body.
 ```
 
-Sidebar entries (`src/content/featured/`) and portfolio items (`src/content/work/`) use smaller schemas; see `content.config.ts`.
+Portfolio items (`src/content/work/`) use a smaller schema; see `content.config.ts`.
 
 ## Homepage gallery
 
@@ -99,7 +99,7 @@ optional `emphasis` for italic headline text, optional `pageNumber` for the
 sticky header, and `draft: true` to hide it.
 The homepage sidebar is titled `Recent Blogs` and shows up to the three newest
 non-draft entries from `src/content/posts/`, using the existing Gallery Notes
-layout. Legacy entries in `src/content/featured/` are no longer rendered there.
+layout.
 
 For a blog article, create a separate file in `src/content/posts/`. Blog posts
 never appear in the homepage gallery automatically.
