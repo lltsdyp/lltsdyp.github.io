@@ -902,7 +902,10 @@ html {
   }
 
   img {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    display: block;
     margin: 1.6em 0;
   }
 
