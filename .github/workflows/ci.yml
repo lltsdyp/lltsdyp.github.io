@@ -9,12 +9,8 @@ on:
 jobs:
   validate_front_matter:
     runs-on: ubuntu-latest
-    env:
-      BASE_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
     steps:
       - uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
 
       - name: Install yq
         run: |
@@ -27,16 +23,12 @@ jobs:
         run: |
           set -euo pipefail
 
-          git diff --name-only --diff-filter=ACMRT "$BASE_SHA" "$GITHUB_SHA" -- src/content/posts/ |
-          while IFS= read -r file; do
-            case "$file" in
-              *.md|*.mdx)
-                if ! yq --front-matter=extract -e 'has("title")' "$file" >/dev/null; then
-                  printf '::error::Missing title field in front matter: %s\n' "$file"
-                  exit 1
-                fi
-                ;;
-            esac
+          find src/content/posts -type f \( -name '*.md' -o -name '*.mdx' \) -print0 |
+          while IFS= read -r -d '' file; do
+            if ! sed -n '/^---$/,/^---$/p' "$file" | sed '1d;$d' | yq '.title' -e >/dev/null; then
+              printf '::error::Missing title field in front matter: %s\n' "$file"
+              exit 1
+            fi
           done
 
   build:
