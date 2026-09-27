@@ -7,7 +7,33 @@ on:
     branches: [main]
 
 jobs:
+  validate_front_matter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install yq
+        run: |
+          curl -fsSL https://github.com/mikefarah/yq/releases/download/v4.53.6/yq_linux_amd64 -o "$RUNNER_TEMP/yq"
+          chmod +x "$RUNNER_TEMP/yq"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+
+      - name: Check blog front matter titles
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          find src/content/posts -type f \( -name '*.md' -o -name '*.mdx' \) -print0 |
+          while IFS= read -r -d '' file; do
+            printf 'Checking file: %s\n' "$file"
+            if ! sed -n '/^---$/,/^---$/p' "$file" | sed '1d;$d' | yq '.title' -e >/dev/null; then
+              printf '::error::Missing title field in front matter: %s\n' "$file"
+              exit 1
+            fi
+          done
+
   build:
+    needs: validate_front_matter
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -24,3 +50,12 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy.yml
