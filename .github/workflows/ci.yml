@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: ['**']
+    branches: [main]
   pull_request:
     branches: [main]
 
@@ -25,6 +25,7 @@ jobs:
 
           find src/content/posts -type f \( -name '*.md' -o -name '*.mdx' \) -print0 |
           while IFS= read -r -d '' file; do
+            printf 'Checking file: %s\n' "$file"
             if ! sed -n '/^---$/,/^---$/p' "$file" | sed '1d;$d' | yq '.title' -e >/dev/null; then
               printf '::error::Missing title field in front matter: %s\n' "$file"
               exit 1
