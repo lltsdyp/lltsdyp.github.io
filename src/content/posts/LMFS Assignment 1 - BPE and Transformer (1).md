@@ -1,3 +1,16 @@
+---
+title: 'CS336 Assignment 1 - BPE and Transformer (1)'
+bigTitle: 'CS336 Assignment 1 - BPE and Transformer (1)'
+emphasis: ''
+headline: 'CS336 Assignment 1 - BPE and Transformer (1)'
+excerpt: 'CS336 Assignment1：实现一个ByteLevel分词器和一个Transformer.'
+author: 'Zimo Ji'
+readTime: '7 Min Read'
+date: 2026-09-29
+cover: 'https://pub-10335079c4434caeb29ee4048d530c52.r2.dev/2026/09/attention.png'
+tags: ['CS336', '笔记']
+---
+
 本贴记录CS336的Assignment1实现过程
 
 # BPE
